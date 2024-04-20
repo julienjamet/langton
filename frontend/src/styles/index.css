@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(167, 167, 167);
+}
+body .matrice {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 98vh;
+  width: 98vw;
+}
+body .matrice li {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  width: 100%;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+body .matrice li:nth-child(1) {
+  border-top: 2px solid black;
+}
+body .matrice li:nth-last-child(1) {
+  border-bottom: 2px solid black;
+}
+body .matrice li .number {
+  width: 20px;
+  color: rgb(167, 167, 167);
+  border: 1px solid black;
+  overflow: hidden;
+  cursor: default;
+}
+body .matrice li .number:hover {
+  color: pink;
+  background-color: pink;
+}/*# sourceMappingURL=index.css.map */
