@@ -46,8 +46,6 @@ export default (app: Application): void => {
         const matrice: number[][] = req.body.matrice;
         const position: number = req.body.position;
 
-        console.log(position)
-
         let rowIndex: number = -1;
         let colIndex: number = -1;
 
@@ -67,11 +65,27 @@ export default (app: Application): void => {
         }
 
         if (rowIndex !== -1 && colIndex !== -1) {
-            res.status(200).json({ coordinates: `[${rowIndex + 1}, ${colIndex + 1}]` });
+            res.status(200).json({ x: colIndex + 1, y: rowIndex + 1 });
         }
         else {
             res.status(404).json({ error: `Value out of the matrice` });
         }
+    });
+
+
+    /**
+     * MOVE
+     * Used to make the ant move
+     * @param {Request} req
+     * @param {Response} res
+    **/
+    app.post('/move', (req: Request, res: Response): void => {
+        let x: number = req.body.x;
+        let y: number = req.body.y;
+
+        x++;
+
+        res.status(200).json({ x: x, y: y });
     });
 };
 /************************************************************************/
