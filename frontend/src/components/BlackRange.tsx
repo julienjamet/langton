@@ -4,17 +4,21 @@ import { FC } from "react";
 /****************************************************/
 
 /*****************************************INTERFACES*/
-import { ICoordinates } from "../interfaces";
+import { IBlackRange } from "../interfaces";
 /****************************************************/
 /************************************************************************/
 
 
-/************************************************************COORDINATES*/
-export const Coordinates: FC<ICoordinates> = ({ x, y }) => {
+/**********************************************************MATRICE RANGE*/
+export const BlackRange: FC<IBlackRange> = ({ count, setCount }) => {
+    const handleChangeRange = (e: any) => {
+        setCount(e.target.value)
+    };
+
     return (
-        <div className="coordinates">
-            <span>Coordonnées</span>
-            <span>{`${x}, ${y}`}</span>
+        <div className='range'>
+            <label htmlFor="range">Cases noires</label>
+            <input onChange={(e): void => handleChangeRange(e)} type="range" id="range" min="0" max="100" value={count} />
         </div>
     );
 };

@@ -4,17 +4,19 @@ import { FC } from "react";
 /****************************************************/
 
 /*****************************************INTERFACES*/
-import { ILaunch } from "../interfaces";
+import { IHideGrid } from "../interfaces";
 /****************************************************/
 /************************************************************************/
 
 
-/************************************************************COORDINATES*/
-export const Launch: FC<ILaunch> = ({ move, black, active }) => {
-    /*****************************************RETURN TSX*/
+/**********************************************************MATRICE RANGE*/
+export const HideGrid: FC<IHideGrid> = ({ hideGrid, setHideGrid }) => {
     return (
-        <button className="launch" onClick={() => move(black, active, 'up')}>Lancer simulation</button>
+        !hideGrid ? (
+            <button className="showHideButton" onClick={(): void => setHideGrid(true)}>Cacher grille</button>
+        ) : (
+            <button className="showHideButton" onClick={(): void => setHideGrid(false)}>Afficher grille</button>
+        )
     );
-    /****************************************************/
 };
 /************************************************************************/

@@ -80,12 +80,48 @@ export default (app: Application): void => {
      * @param {Response} res
     **/
     app.post('/move', (req: Request, res: Response): void => {
-        let x: number = req.body.x;
-        let y: number = req.body.y;
+        let black: number[] = req.body.black;
+        let active: number = req.body.active;
+        let direction: string = req.body.direction;
 
-        x++;
+        // Détermine la couleur de la case actuelle
+        const isBlack: boolean = black.includes(active); // Utilisation d'un nombre unique pour identifier chaque case
 
-        res.status(200).json({ x: x, y: y });
+        let newDirection;
+
+        // Logique pour déterminer la prochaine direction en fonction de la couleur et de la direction actuelle
+        if (isBlack) {
+            // Si la case est noire
+            if (direction === 'up') {
+                newDirection = 'left';
+            }
+            else if (direction === 'down') {
+                newDirection = 'right';
+            }
+            else if (direction === 'left') {
+                newDirection = 'down';
+            }
+            else if (direction === 'right') {
+                newDirection = 'up';
+            }
+        }
+        else {
+            // Si la case est blanche
+            if (direction === 'up') {
+                newDirection = 'right';
+            }
+            else if (direction === 'down') {
+                newDirection = 'left';
+            }
+            else if (direction === 'left') {
+                newDirection = 'up';
+            }
+            else if (direction === 'right') {
+                newDirection = 'down';
+            }
+        }
+
+        res.status(200).json({ direction: newDirection });
     });
 };
 /************************************************************************/

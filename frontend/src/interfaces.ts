@@ -4,21 +4,33 @@ export interface ICoordinates {
 };
 
 export interface IMatrice {
-    rows: number;
-    cols: number;
     matrice: number[][];
-    setMatrice: (matrice: number[][]) => void;
-    x: number;
-    setX: (x: number) => void;
-    y: number;
-    setY: (y: number) => void;
     handlePosition: Function;
     active: number;
     black: number[];
+    hideGrid: boolean;
 };
 
 export interface ILaunch {
-    x: number;
-    y: number;
     move: Function;
+    black: number[];
+    active: number;
+};
+
+export interface IMatriceRange {
+    setCols: (cols: number) => void;
+};
+
+export interface IBlackRange {
+    count: number;
+    setCount: (count: number) => void;
+};
+
+export interface IHideGrid {
+    hideGrid: boolean;
+    setHideGrid: (hideGrid: boolean) => void;
+};
+
+export interface IMovesCount {
+    movesCount: number;
 };
