@@ -99,7 +99,9 @@ export const App: FC = () => {
         setBlack(updatedBlack);
         setActive(updatedActive);
 
-        move(updatedBlack, updatedActive, newDirection);
+        setTimeout((): void => {
+          move(updatedBlack, updatedActive, newDirection);
+        }, 200)
       })
 
       .catch((error: AxiosError): void => console.error(error))

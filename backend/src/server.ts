@@ -3,7 +3,6 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import path from 'path';
 /****************************************************/
 
 /**************************************EMAILS ROUTER*/
@@ -20,13 +19,6 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 /****************************************************/
-
-// #################################
-// REDIRECT TO FRONTEND
-app.use('/*', (req, res) => {
-    res.sendFile(path.resolve('../../frontend/build/index.html'));
-});
-// #################################
 
 /*********************************ROUTER DECLARATION*/
 Router(app);
