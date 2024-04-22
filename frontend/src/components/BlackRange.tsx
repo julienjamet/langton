@@ -18,7 +18,7 @@ export const BlackRange: FC<IBlackRange> = ({ count, setCount }) => {
     return (
         <div className='range'>
             <label htmlFor="range">Cases noires</label>
-            <input onChange={(e): void => handleChangeRange(e)} type="range" id="range" min="0" max="100" value={count} />
+            <input onChange={(e): void => handleChangeRange(e)} type="range" id="range" min="0" max="10" value={count} />
         </div>
     );
 };
