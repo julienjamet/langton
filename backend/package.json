@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
-    "start": "concurrently -k -n \"TS,JS\" -p \"[{name}]\" -c \"blue,yellow\"  \"tsc --watch\" \"nodemon --quiet ./dist/server.js\""
+    "start": "node ./dist/server.js"
   },
   "author": "Julien Jamet",
   "devDependencies": {
