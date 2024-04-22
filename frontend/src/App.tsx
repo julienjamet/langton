@@ -65,7 +65,7 @@ export const App: FC = () => {
 
   // MOVE
   const move = (black: number[], active: number, direction: string): void => {
-    axios.post('http://localhost:3000/move', { black: black, active: active, direction: direction })
+    axios.post('https://langton.onrender.com/move', { black: black, active: active, direction: direction })
 
       .then((response: any): void => {
         const newDirection: string = response.data.direction;
