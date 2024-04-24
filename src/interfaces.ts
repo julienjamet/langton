@@ -8,20 +8,26 @@ export interface IBlackCount {
     setBlackCount: (blackCount: number) => void;
 };
 
-export interface ICount {
-    count: number;
+export interface IMovesCount {
+    movesCount: number;
 };
 
 export interface ILaunch {
     setLaunch: (launch: boolean) => void;
 };
 
+export interface IOver {
+    over: boolean;
+    setBlack: (black: number[]) => void;
+    setBlackCount: (blackCount: number) => void;
+    setActive: (active: number) => void;
+    setLaunch: (launch: boolean) => void;
+    setMovesCount: (movesCount: number) => void;
+    setOver: (over: boolean) => void;
+};
+
 export interface IMatrice {
     active: number;
     setActive: (active: number) => void;
     black: number[];
-};
-
-export interface IMovesCount {
-    movesCount: number;
 };

@@ -1,3 +1,17 @@
+@keyframes reset {
+  0% {
+    color: black;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    color: red;
+    transform: scale(1.2) rotate(180deg) translateX(2px);
+  }
+  100% {
+    color: black;
+    transform: scale(1) rotate(370deg);
+  }
+}
 body {
   display: flex;
   justify-content: center;
@@ -48,6 +62,26 @@ body .launch {
 }
 body .launch:hover {
   letter-spacing: 0.5px;
+}
+body .over {
+  position: absolute;
+  top: 250px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: red;
+}
+body .over .icon {
+  animation: reset 1500ms infinite ease-in-out both;
+}
+body .over .icon i {
+  height: 25px;
+  width: 25px;
+  padding-left: 7px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 body .matrice {
   display: flex;

@@ -7,8 +7,9 @@ import { FC, useEffect, useState } from "react";
 import { Speed } from "./components/Speed";
 import { Launch } from "./components/Launch";
 import { Matrice } from "./components/Matrice";
-import { Count } from "./components/Count";
+import { MovesCount } from "./components/Count";
 import { BlackCount } from "./components/BlackCount";
+import { Over } from "./components/Over";
 /****************************************************/
 /************************************************************************/
 
@@ -21,7 +22,8 @@ export const App: FC = () => {
   const [blackCount, setBlackCount] = useState<number>(0);
   const [active, setActive] = useState<number>(4949);
   const [launch, setLaunch] = useState<boolean>(false);
-  const [count, setCount] = useState<number>(0);
+  const [movesCount, setMovesCount] = useState<number>(0);
+  const [over, setOver] = useState<boolean>(false);
 
   let moves: number = 0;
   /****************************************************/
@@ -114,7 +116,7 @@ export const App: FC = () => {
     // SET STATES
     setBlack(updatedBlack);
     setActive(updatedActive);
-    setCount(moves);
+    setMovesCount(moves);
 
     // RECURSIVELY LAUNCH MOVE FUNCTION
     setTimeout((): void => {
@@ -125,7 +127,15 @@ export const App: FC = () => {
   // LAUNCH MOVE FUNCTION
   useEffect((): void => {
     launch && move(black, active, 'up');
+    // eslint-disable-next-line
   }, [launch]);
+
+  // CHECK IF SIMULATION IS OVER
+  useEffect((): void => {
+    if (active < 1 || active > 10000) {
+      setOver(true);
+    }
+  }, [active]);
   /****************************************************/
 
   /*****************************************RETURN TSX*/
@@ -135,9 +145,18 @@ export const App: FC = () => {
 
       <BlackCount blackCount={blackCount} setBlackCount={setBlackCount} />
 
-      <Count count={count} />
+      <MovesCount movesCount={movesCount} />
 
       <Launch setLaunch={setLaunch} />
+
+      <Over
+        over={over}
+        setBlack={setBlack}
+        setBlackCount={setBlackCount}
+        setActive={setActive}
+        setLaunch={setLaunch}
+        setMovesCount={setMovesCount}
+        setOver={setOver} />
 
       <Matrice active={active} setActive={setActive} black={black} />
     </>

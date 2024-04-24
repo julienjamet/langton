@@ -4,18 +4,18 @@ import { FC } from "react";
 /****************************************************/
 
 /*****************************************INTERFACES*/
-import { ICount } from "../interfaces";
+import { IMovesCount } from "../interfaces";
 /****************************************************/
 /************************************************************************/
 
 
 /************************************************************COORDINATES*/
-export const Count: FC<ICount> = ({ count }) => {
+export const MovesCount: FC<IMovesCount> = ({ movesCount }) => {
     /*****************************************RETURN TSX*/
     return (
         <div className="count">
-            <div>{count}</div>
-            <div>{`mouvement${count > 1 ? 's' : ''}`}</div>
+            <div>{movesCount}</div>
+            <div>{`mouvement${movesCount > 1 ? 's' : ''}`}</div>
         </div>
     );
     /****************************************************/
