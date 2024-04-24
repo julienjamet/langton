@@ -15,7 +15,7 @@ export const Count: FC<ICount> = ({ count }) => {
     return (
         <div className="count">
             <div>{count}</div>
-            <div>{`mouvement${count > 0 ? 's' : ''}`}</div>
+            <div>{`mouvement${count > 1 ? 's' : ''}`}</div>
         </div>
     );
     /****************************************************/
