@@ -118,7 +118,7 @@ export const App: FC = () => {
 
     // RECURSIVELY LAUNCH MOVE FUNCTION
     setTimeout((): void => {
-      active < 10000 && move(updatedBlack, updatedActive, newDirection);
+      active > 0 && active < 10001 && move(updatedBlack, updatedActive, newDirection);
     }, 1000 / speed);
   };
 
