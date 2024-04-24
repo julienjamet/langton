@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
   background-color: rgb(167, 167, 167);
 
   .range {
@@ -16,26 +17,39 @@ body {
     }
 
     input {
+      width: 140px;
       cursor: pointer;
     }
   }
 
-  .showHideButton {
+  .count {
     position: absolute;
     top: 60px;
     right: 20px;
-    cursor: pointer;
-    height: 20px;
-    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 140px;
+    background-color: #EFEFEF;
+    border: 2px solid black;
+    border-radius: 5px;
   }
 
   .launch {
     position: absolute;
     top: 120px;
     right: 20px;
-    cursor: pointer;
     height: 30px;
-    width: 130px;
+    width: 144px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 400ms;
+
+    &:hover {
+      letter-spacing: 0.5px;
+    }
   }
 
   .matrice {
@@ -81,10 +95,6 @@ body {
             color: red;
             background-color: red;
           }
-        }
-
-        &.hide {
-          border-color: rgb(167, 167, 167);
         }
 
         &:hover {

@@ -4,16 +4,19 @@ import { FC } from "react";
 /****************************************************/
 
 /*****************************************INTERFACES*/
-import { ILaunch } from "../interfaces";
+import { ISpeed } from "../interfaces";
 /****************************************************/
 /************************************************************************/
 
 
-/************************************************************COORDINATES*/
-export const Launch: FC<ILaunch> = ({ move, black, active }) => {
+/**********************************************************MATRICE RANGE*/
+export const Speed: FC<ISpeed> = ({ speed, setSpeed }) => {
     /*****************************************RETURN TSX*/
     return (
-        <button className="launch" onClick={() => move(black, active, 'up')}>Lancer simulation</button>
+        <div className='range'>
+            <label htmlFor="range">Vitesse</label>
+            <input onChange={(e): void => setSpeed(Number(e.target.value))} type="range" id="range" min="1" max="10" value={speed} />
+        </div>
     );
     /****************************************************/
 };
