@@ -20,11 +20,15 @@ body {
       width: 140px;
       cursor: pointer;
     }
+
+    &.blackCount {
+      top: 50px;
+    }
   }
 
   .count {
     position: absolute;
-    top: 60px;
+    top: 120px;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -38,7 +42,7 @@ body {
 
   .launch {
     position: absolute;
-    top: 120px;
+    top: 200px;
     right: 20px;
     height: 30px;
     width: 144px;

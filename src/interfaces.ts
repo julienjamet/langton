@@ -3,6 +3,11 @@ export interface ISpeed {
     setSpeed: (speed: number) => void;
 };
 
+export interface IBlackCount {
+    blackCount: number;
+    setBlackCount: (blackCount: number) => void;
+};
+
 export interface ICount {
     count: number;
 };

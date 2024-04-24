@@ -8,6 +8,7 @@ import { Speed } from "./components/Speed";
 import { Launch } from "./components/Launch";
 import { Matrice } from "./components/Matrice";
 import { Count } from "./components/Count";
+import { BlackCount } from "./components/BlackCount";
 /****************************************************/
 /************************************************************************/
 
@@ -17,6 +18,7 @@ export const App: FC = () => {
   /*********************************************STATES*/
   const [speed, setSpeed] = useState<number>(1000);
   const [black, setBlack] = useState<number[]>([]);
+  const [blackCount, setBlackCount] = useState<number>(0);
   const [active, setActive] = useState<number>(4949);
   const [launch, setLaunch] = useState<boolean>(false);
   const [count, setCount] = useState<number>(0);
@@ -31,6 +33,25 @@ export const App: FC = () => {
       setSpeed(1000);
     }
   }, [speed]);
+
+  // SET BLACK
+  useEffect((): void => {
+    const min: number = 1;
+    const max: number = 10000;
+    let i: number = 0;
+    const totalBlackCount: number = 100 * blackCount;
+    const black: number[] = [];
+
+    while (i < totalBlackCount) {
+      const randomNumber: number = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      black.push(randomNumber);
+
+      i++;
+    }
+
+    setBlack(black);
+  }, [blackCount]);
 
   // MOVE
   const move = (black: number[], active: number, direction: string): void => {
@@ -111,6 +132,8 @@ export const App: FC = () => {
   return (
     <>
       <Speed speed={speed} setSpeed={setSpeed} />
+
+      <BlackCount blackCount={blackCount} setBlackCount={setBlackCount} />
 
       <Count count={count} />
 

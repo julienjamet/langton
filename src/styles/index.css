@@ -19,9 +19,12 @@ body .range input {
   width: 140px;
   cursor: pointer;
 }
+body .range.blackCount {
+  top: 50px;
+}
 body .count {
   position: absolute;
-  top: 60px;
+  top: 120px;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -34,7 +37,7 @@ body .count {
 }
 body .launch {
   position: absolute;
-  top: 120px;
+  top: 200px;
   right: 20px;
   height: 30px;
   width: 144px;
